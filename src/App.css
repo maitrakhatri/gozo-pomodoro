@@ -13,8 +13,8 @@
     --light-red: #F94E65;
     --light-blue: #73ABE7;
 
-    --primary-dark: var(--gray);
-    --primary-light: var(--light-gray);
+    --primary-dark: var(--red);
+    --primary-light: var(--light-red);
 }
 
 ::placeholder {
