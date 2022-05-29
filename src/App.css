@@ -1,0 +1,207 @@
+@import url('https://fonts.googleapis.com/css2?family=Encode+Sans:wght@100;200;300;400;500;600;700;800;900&display=swap');
+
+:root {
+    --gray: #191919;
+    --text-gray: #d1d1d1;
+    --purple: #662C91;
+    --red: #F71735;
+    --blue: #3083DC;
+
+    --light-gray: #3D3D3D;
+    --light-text-gray: #F5F5F5;
+    --light-purple: #8D44C5;
+    --light-red: #F94E65;
+    --light-blue: #73ABE7;
+
+    --primary-dark: var(--gray);
+    --primary-light: var(--light-gray);
+}
+
+::placeholder {
+    color: var(--light-text-gray);
+}
+
+body {
+    font-family: 'Encode Sans', sans-serif;
+    padding: 0;
+    margin: 0;
+    margin: 0 4rem 0 4rem;
+    background-color: var(--primary-dark);
+    color: var(--light-text-gray);
+}
+
+button:hover, input:hover {
+    cursor: pointer;
+}
+
+nav {
+    display: flex;
+    align-items: center;
+}
+
+nav .header {
+    font-size: x-large;
+}
+
+nav #opensettings {
+    margin-left: auto;
+}
+
+#greeting {
+    display: flex;
+    align-items: baseline;
+    gap: 2rem;
+}
+
+main {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 2rem;
+    gap: 3rem;
+}
+
+.timer-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--primary-light);
+    width: fit-content;
+    padding: 1rem 2rem;
+    border-radius: .25rem;
+}
+
+.modes {
+    display: flex;
+    align-items: center;
+    gap: 3rem;
+}
+
+.modes #active {
+    background-color: var(--text-gray);
+    color: var(--gray);
+    font-weight: bold;
+    padding: .5rem 1.5rem;
+    border-radius: .25rem;
+}
+
+.timer {
+    font-size: 8rem;
+    font-weight: bold;
+    margin: 2rem;
+}
+
+.actions button {
+    border: none;
+    outline: none;
+    font-size: 1.5rem;
+    font-weight: bold;
+    padding: .5rem 1.5rem;
+    border-radius: .25rem;
+    margin: 1rem;
+}
+
+.actions #primary {
+    background-color: var(--text-gray);
+    color: var(--gray);
+}
+
+.actions #secondary {
+    background-color: transparent;
+    border: .2rem solid var(--light-text-gray);
+    color: var(--light-text-gray);
+}
+
+.task-container {
+    background-color: var(--primary-light);
+    padding: 1rem 2rem;
+    border-radius: .25rem;
+}
+
+#add-new-task, #settings input {
+    background-color: transparent;
+    outline: none;
+    border: none;
+    padding: 1rem 0 .5rem 0;
+    font-size: x-large;
+    color: var(--light-text-gray);
+    border-bottom: 2px solid var(--light-text-gray);
+    margin-bottom: 1rem;
+}
+
+.new-task {
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+}
+
+.new-task button {
+    border: none;
+    outline: none;
+    padding: 0.5rem 1rem;
+    background-color: var(--light-text-gray);
+    font-weight: bolder;
+    color: var(--gray);
+    border-radius: 2rem;
+    font-size: large;
+}
+
+.task-list li  {
+    font-size: x-large;
+    margin-bottom: 1rem;
+}
+
+.done {
+    text-decoration: line-through;
+}
+
+.task-list img {
+    width: 1rem;
+    margin-left: 1rem;
+    cursor: pointer;
+}
+
+.task-list .task {
+    display: flex;
+    align-items: baseline;
+}
+
+#settings {
+    z-index: 2;
+    position: absolute;
+    left: 50%;
+    top: 50%; 
+    width: 20rem;
+    height: 28rem;
+    margin-left: -10rem;
+    margin-top: -14rem;
+    width: fit-content;
+    padding: 1rem 2rem;
+    background-color: var(--light-text-gray);
+    color: var(--gray);
+    display: flex;
+    flex-direction: column;
+}
+
+#settings input {
+    color: var(--gray);
+    width: fit-content;
+    padding: .5rem .25rem;
+    border-bottom: 1px solid var(--gray);
+}
+
+#settings button {
+    border: none;
+    outline: none;
+    background-color: var(--gray);
+    color: var(--light-text-gray);
+    width: fit-content;
+    font-size: large;
+    border-radius: .25rem;
+    padding: 0.5rem 0.75rem;
+}
+
+.hide {
+    display: none;
+}
