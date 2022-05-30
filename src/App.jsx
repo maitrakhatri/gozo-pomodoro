@@ -6,7 +6,7 @@ import { useUniCon } from "./Context/UniversalContext";
 function App() {
 
   const { focus, shortBreak, longBreak } = useTimer();
-  const { darkMode, settings } = useUniCon();
+  const { darkMode } = useUniCon();
 
   const setMode = () => {
     if(!darkMode) {
