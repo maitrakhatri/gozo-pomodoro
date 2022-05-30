@@ -1,33 +1,9 @@
 import { useState } from "react";
+import { useTask } from "../Context/TaskContext";
 
 export function TaskContainer() {
 
-  const [list, setList] = useState([]);
-  const [newTask, setNewTask] = useState({});
-  const [edit, setEdit] = useState(false);
-  const [toBeEdited, setToBeEdited] = useState({});
-
-  const editTodo = (item) => {
-    setToBeEdited(item);
-  };
-
-  const updateTodo = () => {
-    setList(() =>
-      list.map((item) => (item.id === toBeEdited.id ? toBeEdited : item))
-    );
-  };
-
-  const toggle = (item) => {
-    setList((todos) =>
-      todos.map((todo) =>
-        todo.id === item.id ? { ...todo, done: !item.done } : todo
-      )
-    );
-  };
-
-  const removeTask = (item) => {
-    setList((list) => list.filter((todo) => todo.id !== item.id));
-  };
+  const { setNewTask, newTask, setList, list, setToBeEdited, toBeEdited, updateTodo, setEdit, edit, toggle, removeTask, editTodo } = useTask()
 
   return (
     <div class="task-container">
