@@ -19,7 +19,7 @@ export function TimerContainer() {
 
   useEffect(() => {
     document.title = `${timerMins}:${timerSecs} | ${getMode()} | gozoPomo`
-  },[timerMins, timerSecs])
+  },[timerMins, timerSecs, getMode])
 
   return (
     <div className="timer-container">
