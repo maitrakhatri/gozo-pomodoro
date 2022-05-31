@@ -25,7 +25,7 @@ export function TimerContainer() {
 
   useEffect(() => {
     getMode()
-  }, [timerMins, timerSecs])
+  }, [timerMins, timerSecs, getMode])
 
   return (
     <div className="timer-container">
