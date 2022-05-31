@@ -5,27 +5,22 @@ export function TimerContainer() {
 
   const { focus, shortBreak, longBreak, startFocus, startLongBreak, startShortBreak, timerMins, timerSecs, isPause, setIsPause, setReset } = useTimer()
 
-  const getMode = () => {
-    if(focus) {
-      return "Focus"
-    }
-    if(shortBreak) {
-      return "Short Break"
-    }
-    if(longBreak) {
-      return "Long Break"
-    }
-  }
-
-  let mode = getMode()
-
   useEffect(() => {
-    document.title = `${timerMins}:${timerSecs} | ${mode} | gozoPomo`
-  },[timerMins, timerSecs, mode])
 
-  useEffect(() => {
-    getMode()
-  }, [timerMins, timerSecs, getMode])
+    const getMode = () => {
+      if(focus) {
+        return "Focus"
+      }
+      if(shortBreak) {
+        return "Short Break"
+      }
+      if(longBreak) {
+        return "Long Break"
+      }
+    }
+
+    document.title = `${timerMins}:${timerSecs} | ${getMode()} | gozoPomo`
+  },[timerMins, timerSecs])
 
   return (
     <div className="timer-container">
