@@ -13,13 +13,19 @@ export function TimerContainer() {
       return "Short Break"
     }
     if(longBreak) {
-      return "LongBreak"
+      return "Long Break"
     }
   }
 
+  let mode = getMode()
+
   useEffect(() => {
-    document.title = `${timerMins}:${timerSecs} | ${getMode()} | gozoPomo`
-  },[timerMins, timerSecs, getMode])
+    document.title = `${timerMins}:${timerSecs} | ${mode} | gozoPomo`
+  },[timerMins, timerSecs, mode])
+
+  useEffect(() => {
+    getMode()
+  }, [timerMins, timerSecs])
 
   return (
     <div className="timer-container">
