@@ -1,8 +1,25 @@
+import { useEffect } from "react";
 import { useTimer } from "../Context/TimerContext";
 
 export function TimerContainer() {
 
   const { focus, shortBreak, longBreak, startFocus, startLongBreak, startShortBreak, timerMins, timerSecs, isPause, setIsPause, setReset } = useTimer()
+
+  const getMode = () => {
+    if(focus) {
+      return "Focus"
+    }
+    if(shortBreak) {
+      return "Short Break"
+    }
+    if(longBreak) {
+      return "LongBreak"
+    }
+  }
+
+  useEffect(() => {
+    document.title = `${timerMins}:${timerSecs} | ${getMode()} | gozoPomo`
+  },[timerMins, timerSecs])
 
   return (
     <div className="timer-container">

@@ -54,6 +54,7 @@ body #long-break {
 .App  {
     padding: 0 4rem 0 4rem;
     height: 100vh;
+    transition: 250ms linear;
 }
 
 body {
