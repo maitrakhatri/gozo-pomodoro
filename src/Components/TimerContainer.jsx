@@ -20,7 +20,7 @@ export function TimerContainer() {
     }
 
     document.title = `${timerMins}:${timerSecs} | ${getMode()} | gozoPomo`
-  },[timerMins, timerSecs])
+  },[timerMins, timerSecs, focus, shortBreak, longBreak])
 
   return (
     <div className="timer-container">
