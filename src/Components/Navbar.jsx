@@ -11,6 +11,8 @@ export function Navbar() {
           <h1> gozo Pomodoro </h1>
         </div>
         <div id="opensettings">
+        <a href="https://github.com/maitrakhatri/gozo-pomodoro" target="_blank" rel="noopener noreferrer"><img src="assets/github.png" alt="Github Repo" /></a>
+
           {darkMode? <img src="assets/light.png" onClick={() => {
             setDarkMode(false);
             localStorage.setItem("gozoPomoTheme", "false");
