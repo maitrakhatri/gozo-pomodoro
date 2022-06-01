@@ -1,10 +1,10 @@
-import { createContext, useContext, useState } from "react";
+import { createContext, useContext, useEffect, useState } from "react";
 
 const TaskContext = createContext()
 
 function TaskProvider({ children }) {
 
-    const [list, setList] = useState([]);
+    const [list, setList] = useState(JSON.parse(localStorage.getItem("gozoPomoTask")) ?? []);
     const [newTask, setNewTask] = useState({});
     const [edit, setEdit] = useState(false);
     const [toBeEdited, setToBeEdited] = useState({});
@@ -30,6 +30,10 @@ function TaskProvider({ children }) {
     const removeTask = (item) => {
         setList((list) => list.filter((todo) => todo.id !== item.id));
     };
+
+    useEffect(() => {
+        localStorage.setItem("gozoPomoTask", JSON.stringify(list))
+    }, [list])
 
     return <TaskContext.Provider value={{ setNewTask, newTask, setList, list, setToBeEdited, toBeEdited, updateTodo, setEdit, edit, toggle, removeTask, editTodo }}>
         {children}

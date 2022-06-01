@@ -41,7 +41,9 @@ export function Settings() {
 
         <button id="save" type="submit" onClick={() => {
           setSettings(false);
-          setCustomTime(customTime)
+          setCustomTime(customTime);
+          localStorage.setItem("gozoPomoTimer", JSON.stringify(customTime))
+          localStorage.setItem("gozoPomoName", name)
           }}>
           Done
         </button>
