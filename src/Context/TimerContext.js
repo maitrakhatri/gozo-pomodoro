@@ -5,8 +5,8 @@ const TimerContext = createContext()
 
 function TimerProvider({children}) {
 
-    var now = new Date()
-    var pomoLocalData = JSON.parse(localStorage.getItem("gozoPomo"))
+    const now = new Date()
+    const pomoLocalData = JSON.parse(localStorage.getItem("gozoPomo"))
 
     const { customTime } = useUniCon()
 
@@ -92,7 +92,7 @@ function TimerProvider({children}) {
             pomo: pomoCounter,
             date: now.getDate()
         }))
-    })
+    }, [now, pomoCounter] )
 
     useEffect(() => {
         if(now.getDate() !== pomoLocalData.date) {
