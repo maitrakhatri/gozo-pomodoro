@@ -1,11 +1,14 @@
 import { createContext, useContext, useState } from "react";
+import { useUniCon } from "./UniversalContext";
 
 const TimerContext = createContext()
 
 function TimerProvider({children}) {
 
+    const { customTime } = useUniCon()
+
     const [secs, setSecs] = useState(0);
-    const [mins, setMins] = useState(25);
+    const [mins, setMins] = useState(customTime.focus);
 
     const [isPause, setIsPause] = useState(true);
     const [reset, setReset] = useState(false);
@@ -31,13 +34,13 @@ function TimerProvider({children}) {
             }
         } else if (focus) {
             setSecs(0);
-            setMins(25);
+            setMins(customTime.focus);
         } else if (shortBreak) {
             setSecs(0);
-            setMins(5);
+            setMins(customTime.shortBreak);
         } else if (longBreak) {
             setSecs(0);
-            setMins(20);
+            setMins(customTime.longBreak);
         }
     }, 1000);
 
@@ -67,6 +70,10 @@ function TimerProvider({children}) {
 
     const timerSecs = secs < 10 ? `0${secs}` : secs;
     const timerMins = mins < 10 ? `0${mins}` : mins;
+
+    useState(() => {
+        setReset(true)
+    }, [customTime])
 
     return <TimerContext.Provider value={{ focus, shortBreak, longBreak, startFocus, startLongBreak, startShortBreak, timerMins, timerSecs, isPause, setIsPause, setReset }}>
         {children}

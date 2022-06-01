@@ -1,4 +1,9 @@
+import { useUniCon } from "../Context/UniversalContext";
+
 export function Navbar() {
+
+  const { darkMode, setDarkMode, setSettings, name } = useUniCon()
+
   return (
     <div className="Navbar">
       <nav>
@@ -6,12 +11,11 @@ export function Navbar() {
           <h1> gozo Pomodoro </h1>
         </div>
         <div id="opensettings">
-          <h3>Settings</h3>
+          {darkMode? <img src="assets/light.png" onClick={() => setDarkMode(false)} alt="light mode" /> : <img src="assets/dark.png" onClick={() => setDarkMode(true)} alt="dark mode" />}
+          <h3 onClick={() => setSettings(true)}>Settings</h3>
         </div>
       </nav>
-      <span id="greeting">
-        <h1>Welcome back Maitra !!</h1> You have 2 tasks to do
-      </span>
+      <h1>Welcome {name} !!</h1>
     </div>
   );
 }
