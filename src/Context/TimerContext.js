@@ -11,6 +11,7 @@ function TimerProvider({children}) {
 
     // const now = new Date()
     const pomoLocalData = JSON.parse(localStorage.getItem("gozoPomo"))
+    const localPomoCount = pomoLocalData.pomo
 
     const { customTime } = useUniCon()
 
@@ -24,7 +25,7 @@ function TimerProvider({children}) {
     const [shortBreak, setShortBreak] = useState(false);
     const [longBreak, setLongBreak] = useState(false);
 
-    const [pomoCounter, setPomoCounter] = useState( pomoLocalData.pomo ?? 0)
+    const [pomoCounter, setPomoCounter] = useState( localPomoCount ?? 0)
 
     let interval = setInterval(() => {
         clearInterval(interval);
