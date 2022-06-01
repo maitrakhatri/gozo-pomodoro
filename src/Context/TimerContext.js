@@ -92,13 +92,13 @@ function TimerProvider({children}) {
             pomo: pomoCounter,
             date: now.getDate()
         }))
-    }, [pomoCounter, now])
+    })
 
     useEffect(() => {
         if(now.getDate() !== pomoLocalData.date) {
             setPomoCounter(0)
         }
-    }, [now])
+    })
 
     return <TimerContext.Provider value={{ focus, shortBreak, longBreak, startFocus, startLongBreak, startShortBreak, timerMins, timerSecs, isPause, setIsPause, setReset, pomoCounter }}>
         {children}
