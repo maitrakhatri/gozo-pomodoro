@@ -13,7 +13,6 @@ function TimerProvider({children}) {
         return JSON.parse(localStorage.getItem("gozoPomo")) ?? {}
     }, [])
 
-    // const now = new Date()
     const localPomoCount = pomoLocalData.pomo ?? 0
 
     const { customTime } = useUniCon()
