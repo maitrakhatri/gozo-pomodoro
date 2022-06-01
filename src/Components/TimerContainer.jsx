@@ -3,7 +3,7 @@ import { useTimer } from "../Context/TimerContext";
 
 export function TimerContainer() {
 
-  const { focus, shortBreak, longBreak, startFocus, startLongBreak, startShortBreak, timerMins, timerSecs, isPause, setIsPause, setReset } = useTimer()
+  const { focus, shortBreak, longBreak, startFocus, startLongBreak, startShortBreak, timerMins, timerSecs, isPause, setIsPause, setReset, pomoCounter } = useTimer()
 
   useEffect(() => {
 
@@ -40,6 +40,7 @@ export function TimerContainer() {
           setReset(false);
           setIsPause((isPause) => !isPause);
         }}> {isPause ? "Start" : "Pause"} </button>
+        <p>{`#${pomoCounter}`}</p>
       </div>
     </div>
   );
