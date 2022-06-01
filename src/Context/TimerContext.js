@@ -1,11 +1,15 @@
-import { createContext, useContext, useEffect, useState } from "react";
+import { createContext, useContext, useEffect, useMemo, useState } from "react";
 import { useUniCon } from "./UniversalContext";
 
 const TimerContext = createContext()
 
 function TimerProvider({children}) {
 
-    const now = new Date()
+    const now = useMemo(() => {
+        return new Date();
+    }, [])
+
+    // const now = new Date()
     const pomoLocalData = JSON.parse(localStorage.getItem("gozoPomo"))
 
     const { customTime } = useUniCon()
@@ -98,7 +102,7 @@ function TimerProvider({children}) {
         if(now.getDate() !== pomoLocalData.date) {
             setPomoCounter(0)
         }
-    })
+    }, [now, pomoLocalData])
 
     return <TimerContext.Provider value={{ focus, shortBreak, longBreak, startFocus, startLongBreak, startShortBreak, timerMins, timerSecs, isPause, setIsPause, setReset, pomoCounter }}>
         {children}
