@@ -25,3 +25,6 @@
 ![Screenshot 2022-06-01 at 23-49-51 05 00 Short Break gozoPomo](https://user-images.githubusercontent.com/54719132/171475132-5426e79e-da21-40f1-a44a-f00226202f01.png)
 ### Settings
 ![Screenshot 2022-06-01 at 23-50-00 05 00 Short Break gozoPomo](https://user-images.githubusercontent.com/54719132/171475164-b3905a6b-6539-403b-91e7-325fb372b890.png)
+
+## Demo
+https://user-images.githubusercontent.com/54719132/171476674-2a09ba22-4b4c-41db-8386-3810364ac3ee.mp4
