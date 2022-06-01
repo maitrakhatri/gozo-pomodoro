@@ -1,9 +1,19 @@
-import { createContext, useContext, useState } from "react";
+import { createContext, useContext, useEffect, useMemo, useState } from "react";
 import { useUniCon } from "./UniversalContext";
 
 const TimerContext = createContext()
 
 function TimerProvider({children}) {
+
+    const now = useMemo(() => {
+        return new Date();
+    }, [])
+
+    const pomoLocalData = useMemo(() => {
+        return JSON.parse(localStorage.getItem("gozoPomo")) ?? {}
+    }, [])
+
+    const localPomoCount = pomoLocalData.pomo ?? 0
 
     const { customTime } = useUniCon()
 
@@ -17,6 +27,8 @@ function TimerProvider({children}) {
     const [shortBreak, setShortBreak] = useState(false);
     const [longBreak, setLongBreak] = useState(false);
 
+    const [pomoCounter, setPomoCounter] = useState( localPomoCount ?? 0)
+
     let interval = setInterval(() => {
         clearInterval(interval);
         if (!reset) {
@@ -27,6 +39,13 @@ function TimerProvider({children}) {
                         setMins(mins - 1);
                     } else {
                         //end
+                        if(focus) {
+                            setPomoCounter(() => pomoCounter + 1)
+                            startShortBreak();
+                        }
+                        if(shortBreak) {
+                            startFocus();
+                        }
                     }
                 } else {
                     setSecs(secs - 1);
@@ -71,11 +90,24 @@ function TimerProvider({children}) {
     const timerSecs = secs < 10 ? `0${secs}` : secs;
     const timerMins = mins < 10 ? `0${mins}` : mins;
 
-    useState(() => {
+    useEffect(() => {
         setReset(true)
     }, [customTime])
 
-    return <TimerContext.Provider value={{ focus, shortBreak, longBreak, startFocus, startLongBreak, startShortBreak, timerMins, timerSecs, isPause, setIsPause, setReset }}>
+    useEffect(() => {
+        localStorage.setItem("gozoPomo", JSON.stringify({
+            pomo: pomoCounter,
+            date: now.getDate()
+        }))
+    }, [now, pomoCounter] )
+
+    useEffect(() => {
+        if(now.getDate() !== pomoLocalData.date) {
+            setPomoCounter(0)
+        }
+    }, [now, pomoLocalData])
+
+    return <TimerContext.Provider value={{ focus, shortBreak, longBreak, startFocus, startLongBreak, startShortBreak, timerMins, timerSecs, isPause, setIsPause, setReset, pomoCounter }}>
         {children}
     </TimerContext.Provider>
 }
