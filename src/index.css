@@ -265,18 +265,14 @@ main {
     html {
         font-size: 12px;
     }
-
-    .App {
-        height: -webkit-fill-available;
-    }
 }
 
 @media only screen and (max-width: 450px) {
     html {
         font-size: 10px;
     }
-    .App {
-        height: -webkit-fill-available;
+    .task-container {
+        width: fit-content;
     }
 }
 
@@ -284,17 +280,10 @@ main {
     html {
         font-size: 8px;
     }
-    .App {
-        height: -webkit-fill-available;
-    }
-
 }
 
 @media only screen and (max-width: 280px) {
     html {
         font-size: 6px;
-    }
-    .App {
-        height: -webkit-fill-available;
     }
 }
