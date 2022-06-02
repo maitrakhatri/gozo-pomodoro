@@ -52,8 +52,8 @@ body #long-break {
 }
 
 .App  {
-    padding: 0 4rem 0 4rem;
-    height: 100vh;
+    padding: 0.5rem 4rem 0.5rem 4rem;
+    height: fit-content;
     transition: 250ms linear;
 }
 
@@ -71,6 +71,7 @@ button:hover, input:hover {
 nav {
     display: flex;
     align-items: center;
+    flex-wrap: wrap;
 }
 
 nav .header {
@@ -86,8 +87,8 @@ nav #opensettings {
 }
 
 #opensettings img {
-    width: 32px;
-    height: 32px;
+    width: 2rem;
+    height: 2rem;
     cursor: pointer;
 }
 
@@ -101,6 +102,7 @@ main {
     display: flex;
     justify-content: center;
     align-items: center;
+    flex-wrap: wrap;
     padding: 2rem;
     gap: 3rem;
 }
@@ -142,7 +144,11 @@ main {
 .actions {
     display: flex;
     align-items: center;
-    font-size: x-large;
+    /* font-size: x-large; */
+}
+
+.actions p {
+    font-size: 2rem;
 }
 
 .actions button {
@@ -177,7 +183,7 @@ main {
     outline: none;
     border: none;
     padding: 1rem 0 .5rem 0;
-    font-size: x-large;
+    font-size: 1.5rem;
     color: var(--light-text-gray);
     border-bottom: 2px solid var(--light-text-gray);
     margin-bottom: 1rem;
@@ -197,11 +203,11 @@ main {
     font-weight: bolder;
     color: var(--gray);
     border-radius: 2rem;
-    font-size: large;
+    font-size: 1.125rem;
 }
 
 .task-list li  {
-    font-size: x-large;
+    font-size: 1.5rem;
     margin: 0 .5rem 1rem 0;
     overflow-wrap: break-word;
     word-wrap: break-word;
@@ -253,11 +259,40 @@ main {
     background-color: var(--gray);
     color: var(--light-text-gray);
     width: fit-content;
-    font-size: large;
+    font-size: 1.125rem;
     border-radius: .25rem;
     padding: 0.5rem 0.75rem;
 }
 
 .hide {
     display: none;
+}
+
+@media only screen and (max-width: 700px) {
+    html {
+        font-size: 12px;
+    }
+
+    .App {
+        height: 100%;
+        padding-bottom: 2rem;
+    }
+}
+
+@media only screen and (max-width: 450px) {
+    html {
+        font-size: 10px;
+    }
+}
+
+@media only screen and (max-width: 350px) {
+    html {
+        font-size: 8px;
+    }
+}
+
+@media only screen and (max-width: 280px) {
+    html {
+        font-size: 6px;
+    }
 }
