@@ -282,12 +282,20 @@ main {
     html {
         font-size: 10px;
     }
+
+    .task-container {
+        margin-top: 3rem;
+    }
 }
 
 @media only screen and (max-width: 350px) {
     html {
         font-size: 8px;
     }
+    .App {
+        height: 100vh;
+    }
+
 }
 
 @media only screen and (max-width: 280px) {
