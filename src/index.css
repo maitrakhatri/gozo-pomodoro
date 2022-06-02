@@ -53,7 +53,7 @@ body #long-break {
 
 .App  {
     padding: 0.5rem 4rem 0.5rem 4rem;
-    height: fit-content;
+    height: -webkit-fill-available;
     transition: 250ms linear;
 }
 
@@ -75,7 +75,7 @@ nav {
 }
 
 nav .header {
-    font-size: x-large;
+    font-size: 2rem !important;
 }
 
 nav #opensettings {
@@ -91,12 +91,6 @@ nav #opensettings {
     height: 2rem;
     cursor: pointer;
 }
-
-/* #greeting {
-    display: flex;
-    align-items: baseline;
-    gap: 2rem;
-} */
 
 main {
     display: flex;
@@ -144,7 +138,6 @@ main {
 .actions {
     display: flex;
     align-items: center;
-    /* font-size: x-large; */
 }
 
 .actions p {
@@ -274,7 +267,7 @@ main {
     }
 
     .App {
-        height: fit-content;
+        height: -webkit-fill-available;
     }
 }
 
@@ -282,19 +275,18 @@ main {
     html {
         font-size: 10px;
     }
-
-    /* .task-container {
-        margin-top: 3rem;
-    } */
+    .App {
+        height: -webkit-fill-available;
+    }
 }
 
 @media only screen and (max-width: 350px) {
     html {
         font-size: 8px;
     }
-    /* .App {
-        height: 100vh;
-    } */
+    .App {
+        height: -webkit-fill-available;
+    }
 
 }
 
@@ -302,7 +294,7 @@ main {
     html {
         font-size: 6px;
     }
-    /* .App {
-        height: 100vh;
-    } */
+    .App {
+        height: -webkit-fill-available;
+    }
 }
