@@ -283,18 +283,18 @@ main {
         font-size: 10px;
     }
 
-    .task-container {
+    /* .task-container {
         margin-top: 3rem;
-    }
+    } */
 }
 
 @media only screen and (max-width: 350px) {
     html {
         font-size: 8px;
     }
-    .App {
+    /* .App {
         height: 100vh;
-    }
+    } */
 
 }
 
@@ -302,7 +302,7 @@ main {
     html {
         font-size: 6px;
     }
-    .App {
+    /* .App {
         height: 100vh;
-    }
+    } */
 }
