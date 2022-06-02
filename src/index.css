@@ -274,7 +274,7 @@ main {
     }
 
     .App {
-        height: 100vh;
+        height: fit-content;
     }
 }
 
@@ -293,5 +293,8 @@ main {
 @media only screen and (max-width: 280px) {
     html {
         font-size: 6px;
+    }
+    .App {
+        height: 100vh;
     }
 }
