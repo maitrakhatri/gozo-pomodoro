@@ -274,7 +274,7 @@ main {
     }
 
     .App {
-        height: 100vh;
+        height: fit-content;
         padding-bottom: 2rem;
     }
 }
