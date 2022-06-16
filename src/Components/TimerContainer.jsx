@@ -1,5 +1,6 @@
 import { useEffect } from "react";
 import { useTimer } from "../Context/TimerContext";
+import { getMode } from "../Utils/mode";
 
 export function TimerContainer() {
 
@@ -7,19 +8,7 @@ export function TimerContainer() {
 
   useEffect(() => {
 
-    const getMode = () => {
-      if(focus) {
-        return "Focus"
-      }
-      if(shortBreak) {
-        return "Short Break"
-      }
-      if(longBreak) {
-        return "Long Break"
-      }
-    }
-
-    document.title = `${timerMins}:${timerSecs} | ${getMode()} | gozoPomo`
+    document.title = `${timerMins}:${timerSecs} | ${getMode(focus, shortBreak, longBreak)} | gozoPomo`
   },[timerMins, timerSecs, focus, shortBreak, longBreak])
 
   return (
