@@ -1,8 +1,20 @@
 import { useTask } from "../Context/TaskContext";
 
 export function TaskContainer() {
-
-  const { setNewTask, newTask, setList, list, setToBeEdited, toBeEdited, updateTodo, setEdit, edit, toggle, removeTask, editTodo } = useTask()
+  const {
+    newTask,
+    list,
+    toBeEdited,
+    updateTodo,
+    setEdit,
+    edit,
+    toggle,
+    removeTask,
+    editTodo,
+    settingNewTask,
+    addingNewTask,
+    updatingTodo,
+  } = useTask();
 
   return (
     <div class="task-container">
@@ -13,25 +25,9 @@ export function TaskContainer() {
             id="add-new-task"
             placeholder="add new task"
             value={newTask.task}
-            onChange={(e) =>
-              setNewTask({
-                id: Math.random(),
-                task: e.target.value,
-                done: false,
-              })
-            }
+            onChange={(e) => settingNewTask(e)}
           />{" "}
-          <button onClick={() => {
-            setList(() => list.concat(newTask));
-            setNewTask((todo) => {
-              return {
-                ...todo,
-                task: ""
-              }
-            })
-          }}>
-            Add
-          </button>
+          <button onClick={() => addingNewTask(list)}>Add</button>
         </div>
       )}
 
@@ -42,18 +38,11 @@ export function TaskContainer() {
               type="text"
               id="add-new-task"
               value={toBeEdited.task}
-              onChange={(e) =>
-                setToBeEdited((item) => {
-                  return {
-                    ...item,
-                    task: e.target.value,
-                  };
-                })
-              }
+              onChange={(e) => updatingTodo(e)}
             />{" "}
             <button
               onClick={() => {
-                updateTodo();
+                updateTodo(list);
                 setEdit(false);
               }}
             >
@@ -74,15 +63,21 @@ export function TaskContainer() {
                 <input
                   type="checkbox"
                   checked={item.done ? "checked" : ""}
-                  onChange={() => toggle(item)}
+                  onChange={() => toggle(item, list)}
                 />
-                <img src="assets/edit-64.png" alt="edit"
+                <img
+                  src="assets/edit-64.png"
+                  alt="edit"
                   onClick={() => {
                     editTodo(item);
                     setEdit(true);
                   }}
                 />{" "}
-                <img src="assets/delete.svg" alt="delete" onClick={() => removeTask(item)} />
+                <img
+                  src="assets/delete.svg"
+                  alt="delete"
+                  onClick={() => removeTask(item, list)}
+                />
               </span>
             );
           })}
